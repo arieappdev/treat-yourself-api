@@ -90,6 +90,8 @@ public class AuthenticationController {
         }
         catch (Exception e)
         {
+            //Reminder from Eunice. This will show the reason why the login didn't work.
+            e.printStackTrace();
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
