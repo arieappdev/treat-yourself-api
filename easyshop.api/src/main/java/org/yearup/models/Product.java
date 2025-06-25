@@ -31,6 +31,10 @@ public class Product
         this.imageUrl = imageUrl;
     }
 
+    public Product(int i, String laptop, String computer, int i1, int i2, int i3) {
+
+    }
+
     public int getProductId()
     {
         return productId;
