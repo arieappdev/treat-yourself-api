@@ -44,6 +44,7 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
@@ -68,6 +69,8 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         }
         catch (SQLException e)
         {
+
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 
@@ -93,6 +96,7 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
         return null;
@@ -120,6 +124,7 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             System.out.println(e);
         }
 
