@@ -33,7 +33,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
 
         try (Connection connection = basicDataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
-             ResultSet resultSet = statement.executeQuery();
+             ResultSet resultSet = statement.executeQuery()
         ) {
             while (resultSet.next()) {
                 Category category = new Category();
@@ -139,13 +139,11 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
         String name = row.getString("name");
         String description = row.getString("description");
 
-        Category category = new Category()
-        {{
-            setCategoryId(categoryId);
-            setName(name);
-            setDescription(description);
-        }};
-
+        Category category = new Category();
+        category.setCategoryId(categoryId);
+        category.setName(name);
+        category.setDescription(description);
+        
         return category;
     }
 
