@@ -38,6 +38,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
+            ex.printStackTrace();
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
@@ -57,6 +58,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
+            ex.printStackTrace();
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
@@ -71,6 +73,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
+            ex.printStackTrace();
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
@@ -85,6 +88,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
+            ex.printStackTrace();
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
@@ -104,6 +108,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
+            ex.printStackTrace();
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }

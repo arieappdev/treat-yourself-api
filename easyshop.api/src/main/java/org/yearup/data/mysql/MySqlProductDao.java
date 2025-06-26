@@ -23,25 +23,72 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     {
         List<Product> products = new ArrayList<>();
 
-        String sql = "SELECT * FROM products " +
-                "WHERE (category_id = ? OR ? = -1) " +
-                "   AND (price <= ? OR ? = -1) " +
-                "   AND (color = ? OR ? = '') ";
+        String sql = ("SELECT * FROM products WHERE 1=1");
 
-        categoryId = categoryId == null ? -1 : categoryId;
-        minPrice = minPrice == null ? new BigDecimal("-1") : minPrice;
-        maxPrice = maxPrice == null ? new BigDecimal("-1") : maxPrice;
-        color = color == null ? "" : color;
+        if (categoryId != null)
+            sql += " AND category_id = ?";
+        if (minPrice != null)
+            sql += " AND price >= ?";
+        if (maxPrice != null)
+            sql += " AND price <= ?";
+        if (color != null && !color.isEmpty())
+            sql += " AND color = ?";
+
+//        try (Connection connection = getConnection())
+//        {
+//            PreparedStatement statement = connection.prepareStatement(sql);
+//
+//            int paramIndex = 1;
+//            if (categoryId != null)
+//                statement.setInt(paramIndex++, categoryId);
+//            if (minPrice != null)
+//                statement.setBigDecimal(paramIndex++, minPrice);
+//            if (maxPrice != null)
+//                statement.setBigDecimal(paramIndex++, maxPrice);
+//            if (color != null && !color.isEmpty())
+//                statement.setString(paramIndex++, color);
+//
+//            ResultSet row = statement.executeQuery();
+//
+//            while (row.next())
+//            {
+//                Product product = mapRow(row);
+//                products.add(product);
+//            }
+//        }
+//        catch (SQLException e)
+//        {
+//            e.printStackTrace();
+//            throw new RuntimeException(e);
+//        }
+//
+//        return products;
+//    }
+
+//        categoryId = categoryId == null ? -1 : categoryId;
+//        minPrice = minPrice == null ? new BigDecimal("-1") : minPrice;
+//        maxPrice = maxPrice == null ? new BigDecimal("-1") : maxPrice;
+//        color = color == null ? "" : color;
 
         try (Connection connection = getConnection())
         {
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, categoryId);
-            statement.setInt(2, categoryId);
-            statement.setBigDecimal(3, minPrice);
-            statement.setBigDecimal(4, minPrice);
-            statement.setString(5, color);
-            statement.setString(6, color);
+//            statement.setInt(1, categoryId);
+//            statement.setInt(2, categoryId);
+//            statement.setBigDecimal(3, minPrice);
+//            statement.setBigDecimal(4, minPrice);
+//            statement.setString(5, color);
+//            statement.setString(6, color);
+
+            int paramIndex = 1;
+            if (categoryId != null)
+                statement.setInt(paramIndex++, categoryId);
+            if (minPrice != null)
+                statement.setBigDecimal(paramIndex++, minPrice);
+            if (maxPrice != null)
+                statement.setBigDecimal(paramIndex++, maxPrice);
+            if (color != null && !color.isEmpty())
+                statement.setString(paramIndex++, color);
 
             ResultSet row = statement.executeQuery();
 
@@ -53,6 +100,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 
@@ -82,6 +130,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 
@@ -107,6 +156,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
         return null;
@@ -148,6 +198,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
         return null;
@@ -156,6 +207,8 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     @Override
     public void update(int productId, Product product)
     {
+
+        //see if you can change how this looks
         String sql = "UPDATE products" +
                 " SET name = ? " +
                 "   , price = ? " +
@@ -184,6 +237,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
@@ -204,6 +258,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }

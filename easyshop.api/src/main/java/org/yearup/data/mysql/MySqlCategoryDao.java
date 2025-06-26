@@ -143,7 +143,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
         category.setCategoryId(categoryId);
         category.setName(name);
         category.setDescription(description);
-        
+
         return category;
     }
 
