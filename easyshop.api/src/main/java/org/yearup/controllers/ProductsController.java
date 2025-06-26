@@ -84,9 +84,10 @@ public class ProductsController
     {
         try
         {
-            //BUG BZZ BZZ I AIN'T CREATING JACK NO DUPES ALLOWED
+            //BUG BZZ BZZ I AIN'T CREATING JACK NO DUPES ALLOWED - Bug 2
 //            productDao.create(product);
 
+            //BUG SOLUTION TO STOP FROM CREATING NEW PRODUCTS EACH TIME
             productDao.update(id, product);
         }
         catch(Exception ex)

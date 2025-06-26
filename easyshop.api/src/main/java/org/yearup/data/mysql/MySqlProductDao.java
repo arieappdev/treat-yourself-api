@@ -34,61 +34,19 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         if (color != null && !color.isEmpty())
             sql += " AND color = ?";
 
-//        try (Connection connection = getConnection())
-//        {
-//            PreparedStatement statement = connection.prepareStatement(sql);
-//
-//            int paramIndex = 1;
-//            if (categoryId != null)
-//                statement.setInt(paramIndex++, categoryId);
-//            if (minPrice != null)
-//                statement.setBigDecimal(paramIndex++, minPrice);
-//            if (maxPrice != null)
-//                statement.setBigDecimal(paramIndex++, maxPrice);
-//            if (color != null && !color.isEmpty())
-//                statement.setString(paramIndex++, color);
-//
-//            ResultSet row = statement.executeQuery();
-//
-//            while (row.next())
-//            {
-//                Product product = mapRow(row);
-//                products.add(product);
-//            }
-//        }
-//        catch (SQLException e)
-//        {
-//            e.printStackTrace();
-//            throw new RuntimeException(e);
-//        }
-//
-//        return products;
-//    }
-
-//        categoryId = categoryId == null ? -1 : categoryId;
-//        minPrice = minPrice == null ? new BigDecimal("-1") : minPrice;
-//        maxPrice = maxPrice == null ? new BigDecimal("-1") : maxPrice;
-//        color = color == null ? "" : color;
-
         try (Connection connection = getConnection())
         {
             PreparedStatement statement = connection.prepareStatement(sql);
-//            statement.setInt(1, categoryId);
-//            statement.setInt(2, categoryId);
-//            statement.setBigDecimal(3, minPrice);
-//            statement.setBigDecimal(4, minPrice);
-//            statement.setString(5, color);
-//            statement.setString(6, color);
 
-            int paramIndex = 1;
+            int parameterNumber = 1;
             if (categoryId != null)
-                statement.setInt(paramIndex++, categoryId);
+                statement.setInt(parameterNumber++, categoryId);
             if (minPrice != null)
-                statement.setBigDecimal(paramIndex++, minPrice);
+                statement.setBigDecimal(parameterNumber++, minPrice);
             if (maxPrice != null)
-                statement.setBigDecimal(paramIndex++, maxPrice);
+                statement.setBigDecimal(parameterNumber++, maxPrice);
             if (color != null && !color.isEmpty())
-                statement.setString(paramIndex++, color);
+                statement.setString(parameterNumber++, color);
 
             ResultSet row = statement.executeQuery();
 
@@ -208,7 +166,6 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     public void update(int productId, Product product)
     {
 
-        //see if you can change how this looks
         String sql = "UPDATE products" +
                 " SET name = ? " +
                 "   , price = ? " +
