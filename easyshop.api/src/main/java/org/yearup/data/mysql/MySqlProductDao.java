@@ -23,6 +23,8 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     {
         List<Product> products = new ArrayList<>();
 
+
+        //BUG 1 FIX
         String sql = ("SELECT * FROM products WHERE 1=1");
 
         if (categoryId != null)
