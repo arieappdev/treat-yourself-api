@@ -25,9 +25,7 @@ This capstone is an e-commerce application EasyShop that I've rebranded the name
 - View user profiles
 - Edit user profiles
 
-## 📊 Capstone Presentation
-
-[Download the PowerPoint Presentation](docs/Capstone-3-Powerpoint.pptx)
+## SEE GITHUB FOR PHOTOS OF PROJECT
 ---
 ### How to Run the Project
 
