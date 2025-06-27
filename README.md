@@ -1,9 +1,7 @@
-# treat-yourself-api
+# treat-yourself-api Capstone 3 FINAL :D
 This capstone is an e-commerce application EasyShop that I've rebranded the name as treat-yourself-api. This online store will allow you to shop around for items you don't need, but know you want.
 ---
 
-## 🖥️ Features Overview
----
 # ✅ Phase 1: Categories
 
 - View all product categories
@@ -27,43 +25,10 @@ This capstone is an e-commerce application EasyShop that I've rebranded the name
 - View user profiles
 - Edit user profiles
 
-## 🔑 Interesting Code
+## 📊 Capstone Presentation
 
-@RequestMapping(path = "", method = RequestMethod.GET)
-public Profile getProfile() {
-    String username = SecurityUtils.getCurrentUsername().orElse(null);
-    if (username == null) {
-        throw new RuntimeException("User is not logged in.");
-    }
-    User user = userDao.getByUserName(username);
-    return profileDao.getByUserId(user.getId());
-}
-
-Why It's Interesting? 
- When creating the profile controller I thought about authentication so I searched for classes dealing with security and authentication since we do a lot of authenticating and working with profiles in Postman. I saw that the SecurityUtils class was an instance of userDetails, something I used throughout the classes that I touched dealing with the profile so I explored how to use it.
-
-📸 Application Screenshots
-
-🏷️ Categories Loading on Home Page
-
-
-
-🗄️ Postman - Admin Creates Category
-
-
-
-👥 Postman - User Profile Retrieval
-
-
-
-✏️ Postman - User Profile Update
-
-
-
-🔒 Postman - 403 Forbidden for Non-Admin Category Creation
-
-
-
+[Download the PowerPoint Presentation](docs/Capstone_3_Powerpoint.pptx)
+---
 ### How to Run the Project
 
 Start MySQL and ensure the easyshop schema exists.
