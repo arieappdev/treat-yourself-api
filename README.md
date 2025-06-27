@@ -27,7 +27,7 @@ This capstone is an e-commerce application EasyShop that I've rebranded the name
 
 ## 📊 Capstone Presentation
 
-[Download the PowerPoint Presentation](docs/Capstone_3_Powerpoint.pptx)
+[Download the PowerPoint Presentation](docs/Capstone-3-Powerpoint.pptx)
 ---
 ### How to Run the Project
 
